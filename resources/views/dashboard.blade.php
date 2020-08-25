@@ -5,7 +5,7 @@
     <div class='card mt-3'>
         <div class='card-body'>
             <h5 class="card-title mb-5">Tabela de vendas
-                <a href='' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Nova venda</a></h5>
+                <a href='/new-sales' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Nova venda</a></h5>
             <form>
                 <div class="form-row align-items-center">
                     <div class="col-sm-5 my-1">
@@ -15,11 +15,14 @@
                             </div>
                             <select class="form-control" id="inlineFormInputName">
                                 <option>Clientes</option>
-                                <option>1</option>
-                                <option>2</option>
+                                @foreach($products as $product)
+                                <option>{{$product->id}} </option>
+
+                                @endforeach;
+                                <!--<option>2</option>
                                 <option>3</option>
                                 <option>4</option>
-                                <option>5</option>
+                                <option>5</option>-->
                             </select>
                         </div>
                     </div>
@@ -53,20 +56,26 @@
                         Ações
                     </th>
                 </tr>
+
+                
                 <tr>
                     <td>
-                        Perfect Caps
+                       Aqui
                     </td>
                     <td>
-                        20/07/2019 19h15
+                   Aqui
+                        
                     </td>
                     <td>
-                        R$ 100,00
+                   Aqui
                     </td>
                     <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
+                        <a href='/products' class='btn btn-primary'>Editar</a>
                     </td>
                 </tr>
+
+               
+                
                 <tr>
                     <td>
                         Nature Caps
@@ -94,7 +103,7 @@
                     <td>
                         <a href='' class='btn btn-primary'>Editar</a>
                     </td>
-                </tr>
+                </tr> 
             </table>
         </div>
     </div>
@@ -153,7 +162,7 @@
     <div class='card mt-3'>
         <div class='card-body'>
             <h5 class="card-title mb-5">Produtos
-                <a href='' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Novo produto</a></h5>
+                <a href='/products' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Novo produto</a></h5>
             <table class='table'>
                 <tr>
                     <th scope="col">
@@ -166,39 +175,20 @@
                         Ações
                     </th>
                 </tr>
+                @foreach($products as $product)
                 <tr>
                     <td>
-                        Perfect Caps
+                        {{$product->product}}
                     </td>
                     <td>
-                        R$ 100,00
+                    {{$product->price}}
                     </td>
                     <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
+                        <a href='/editProduct/{{$product->id}}' class='btn btn-primary'>Editar</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Nature Caps
-                    </td>
-                    <td>
-                        R$ 120,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Libid Caps
-                    </td>
-                    <td>
-                        R$ 150,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
+                @endforeach;
+                
             </table>
         </div>
     </div>
